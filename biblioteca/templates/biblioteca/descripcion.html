@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Título de la página</title>
+</head>
+<body>
+    <h1>Descripcion y titulo</h1>
+    {% for libro in libros_mostrar%}
+        <li>{{libro.nombre}}</li>
+    {% endfor%}
+</body>
+</html>

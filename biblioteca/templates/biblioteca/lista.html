@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Libros en {{ libros_mostrar.0.tipo }}</title>
+</head>
+<body>
+    <h1>Libros en {{ libros_mostrar.0.get_tipo_display }}</h1>
+    <ul>
+        {% for libro in libros_mostrar %}
+            <li>
+                <h2>{{ libro.nombre }}</h2>
+                <p>Biblioteca: {{ libro.biblioteca.nombre }}</p>
+                <h3>Autores:</h3>
+                <ul>
+                    {% for autor in libro.escritor.all %}
+                        <li>{{ autor.nombre }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Idioma: {{ libro.get_tipo_display }}</p>
+                <p>Descripción: {{ libro.descripcion }}</p>
+                <p>Fecha de Publicación: {{ libro.fecha_publicacion }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+{# En esta modificación, hemos cambiado {{ libros_mostrar.tipo }} a {{ libros_mostrar.0.tipo }} para acceder al atributo tipo del primer libro en la lista. También hemos actualizado el título del h1 para mostrar el idioma del primer libro en libros_mostrar utilizando libros_mostrar.0.get_tipo_display.#}

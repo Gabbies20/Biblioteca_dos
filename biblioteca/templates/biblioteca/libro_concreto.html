@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <body>
+        <h1>BIBLIOTECA ONLINE</h1>
+        <h2>Listado de enlaces</h2>
+        <div>
+            <h2>Nombre: {{ libro_mostrar.nombre }}</h2>
+            <h2>Biblioteca: {{ libro_mostrar.biblioteca.nombre }}</h2>
+            <h2>Autores</h2>
+            <ul>
+                {% for autor in libro_mostrar.escritor.all%}
+                    <li>{{autor.nombre}}
+                {% endfor%}
+            </ul>
+            <h3>Idioma: {{ libro_mostrar.get_idioma_display}}</h3>
+            <p> Descripción: {{libro_mostrar.descripcion}}</p>
+            <a href="">Pulsa para ver más detalles...</a>
+    </body>
+</html>

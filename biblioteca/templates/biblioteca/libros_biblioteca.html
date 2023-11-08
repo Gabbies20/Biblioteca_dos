@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Libros en la Biblioteca {{ id_biblioteca }}</title>
+</head>
+<body>
+    <h1>Libros en la Biblioteca {{ libros_mostrar.biblioteca.nombre }}</h1>
+    <p>Filtrados por texto: {{ texto }}</p>
+    <p>Idioma: {{ libros_mostrar.tipo }}</p> {# Puedes agregar esta línea para mostrar el idioma #}
+    <ul>
+        {% for libro in libros_mostrar %}
+            <li>
+                <h2>{{ libro.nombre }}</h2>
+                <p>Biblioteca: {{ libro.biblioteca.nombre }}</p>
+                <h3>Autores:</h3>
+                <ul>
+                    {% for autor in libro.escritor.all %}
+                        <li>{{ autor.nombre }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Idioma: {{ libro.get_tipo_display }}</p>
+                <p>Descripción: {{ libro.descripcion }}</p>
+                <p>Fecha de Publicación: {{ libro.fecha_publicacion }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

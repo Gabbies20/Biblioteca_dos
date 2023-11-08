@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <h1>BIBLIOTECA ONLINE</h1>
+    <h2>lISTA DE ENLACES.</h2>
+    <ul>
+        <li>
+            <a href="{% url 'listar_libros'%}">URL 1</a>
+        </li>
+        <li>
+            {#id_libro:es el nombre del parámetro de la URL. libro.id  es el id del libro => id_libro=libro.id#}
+            <a href="{% url 'libro_en_concreto'  4 %} ">URL 2</a>
+        </li>
+        <li>
+            
+            <a href="{% url 'idioma' 'ES' %} ">URL 3</a>
+        </li>
+        <li>
+            
+            <a href="{% url 'libros_biblioteca' 1 'sdvsdfsdfsdf' %} ">URL 4</a>
+        </li>
+        <li>
+            
+            <a href="{% url 'dame_libros_titulo_en_descripcion' %} ">URL 5</a>
+        </li>
+        <li>
+            <a href="{% url 'agrupaciones' %} ">URL 6</a>
+        </li>
+    </ul>
+</body>
+</html>

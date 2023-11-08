@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agrupaciones de Puntos de Clientes</title>
+</head>
+<body>
+    <h1>Agrupaciones de Puntos de Clientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del Cliente</th>
+                <th>Puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.puntos }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Media de Puntos: {{ media }}</p>
+    <p>Puntos Máximos: {{ maximo }}</p>
+    <p>Puntos Mínimos: {{ minimo }}</p>
+</body>
+</html>

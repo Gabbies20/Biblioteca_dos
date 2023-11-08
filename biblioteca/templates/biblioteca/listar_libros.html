@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Título de la página</title>
+</head>
+<body>
+    <h1>LIBROS BIBLIOTECA</h1>
+    <ul>
+        {% for libro in mostrar_libros%}
+            
+        <div>
+            <ul>
+                <li>
+                    <p>Nombre: {{libro.nombre}}</p>
+            {#Para obtener los datpos de la biblioteca solo debo usar el atributo biblioteca y luego llamar al atributo de dicho modelo que queremos usar.#}
+            <p>Biblioteca: {{libro.biblioteca.nombre}}</p>
+            <p>Autores:</p>
+            <ul>
+
+                {# Para mostrar los autores, recorremos la variable autores, pero usando all, para indicar que queremos todos los autores.#}
+
+                {#escritor: equivale al campo de mi modelo Book que tiene una relacion ManytoMany#}
+                {% for autor in libro.escritor.all %}
+                    <li>{{autor.nombre}} {{autor.apellidos}}</li>
+                {% endfor%}
+            </ul>
+            <p>Fecha de publicación: {{libro.fecha_publicacion}}</p>
+            {# Paar mostrar el valor del idioma que es de tipo CHOICES, debemos usar _display#}
+            <p>Idioma: {{libro.get_idioma_display}}</p>
+            <p>Descripcion: {{libro.descripcion}}</p>
+                </li>
+            </ul>
+
+        </div>
+
+        {% endfor %}
+    </ul>
+</body>
+</html>
